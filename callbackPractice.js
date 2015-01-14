@@ -19,7 +19,7 @@ and what you should write is the favNum function that makes the code above work,
       alert(thingToSay); //should alert ('Hi Katie')'
    });
     
-    
+
 */
 
 
@@ -31,7 +31,18 @@ first(names, function(firstName){
   console.log('The first name in names is ', firstName)
 });
 
+var first = function(arr, cb) {
+  cb((arr[0]);
+};
 
+//function(firstname) {
+//  console.log("the first name in names is ", firstName)
+//}
+
+// var first = function(arr, cb) {
+//   cb(console.log("the first name in names is ", firstName))
+
+// }
 
 /* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
 
@@ -46,7 +57,9 @@ last(names, function(lastName){
 });
 
 
-
+var last = function(arr, cb) {
+  cb(arr[arr.length -1])
+}
 
 
 /* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
@@ -57,6 +70,9 @@ last(names, function(lastName){
 
 
   //Code Here for multiply
+var multiply = function(num1, num2, cb) {
+  cb(num1 * num2);
+}
 
 multiply(4, 3, function(answer){
   console.log('The answer is ', answer); //should console.log 12
@@ -73,6 +89,10 @@ multiply(4, 3, function(answer){
 
 
   //Code Here for contains
+var contains = function(arr, str, cb) {
+  for(i = 0; i < arr.length; i++)
+    cb(str);
+}
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 contains(names, 'Colt', function(result){
@@ -87,12 +107,23 @@ contains(names, 'Colt', function(result){
 
 
 
+
 /* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
 
 
 
 
     //Code Here for uniq
+var uniq = function(arr, cb) {
+  var uniqArr= [];
+  for(i = 0; i < arr.length; i++) {
+    if(uniqArr.indexOf(arr[i]) === - 1) {
+      uniqArr.push(arr[i])
+    }
+  }
+    cb(uniqArr)
+}
+
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 uniq(names, function(uniqArr){
@@ -106,7 +137,11 @@ uniq(names, function(uniqArr){
 /* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
 
 
-
+var each = function(arr, cb) {
+  for(i = 0; i < arr.length; i++) {
+    cb(names[i], i)
+  }
+}
 
     //Code Here for each
 
@@ -121,7 +156,14 @@ each(names, function(item, indice){
 
 /* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
 
-
+var getUserById = function(arr, id, cb) {
+  for(i = 0; i < arr.length; i++) {
+    if(arr[i].id === id) {
+      cb(arr[i])
+      break
+    }
+  }
+}
 
 
 
@@ -133,7 +175,7 @@ var users = [
     email: 'tyler@gmail.com',
     name: 'Tyler',
     address: '167 East 500 North'
-  },
+  }
   {
     id: '15a',
     email: 'cahlan@gmail.com',
